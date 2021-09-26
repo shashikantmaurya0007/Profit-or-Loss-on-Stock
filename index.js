@@ -3,19 +3,42 @@ let quantity = document.getElementById("Quantity");
 let CurrentPrice = document.getElementById("CurrentPrice");
 let result = document.getElementById("result");
 var buttonClick = document.getElementById("clickButton");
+var backgroundC = document.getElementById("container");
 
 buttonClick.addEventListener("click", perform);
 
-
 function perform() {
+    // let quantityValue = Number(quantity.value);
+    let initialValue = Number(initialprice.value);
+    let currentValue = Number(CurrentPrice.value);
+    let quantityValue = Number(quantity.value);
 
-
-    let finalAmount = CurrentPrice.value * quantity.value - initialprice.value * quantity.value;
+    let finalAmount = currentValue * quantityValue - quantityValue * initialValue;
     console.log(finalAmount);
     if (finalAmount === 0) {
-        result.innerHTML = "No pain no gain and no gain no pain";
+        result.innerHTML = "<h3>No pain no gain and no gain no pain</h3>";
+        backgroundC.style.backgroundImage = "url('neutral.gif')";
     }
     if (finalAmount < 0) {
-        ``
+        const lossPer = (finalAmount * 100) / (initialValue * quantityValue);
+
+        result.innerHTML =
+            "<h3>Sorry you lost " +
+            -1 * finalAmount +
+            "rs    " +
+            lossPer +
+            "% :(</h3>";
+        backgroundC.style.backgroundImage = "url('raindrops-raining.gif')";
+    }
+    if (finalAmount > 0) {
+        const profPer = (finalAmount * 100) / (initialValue * quantityValue);
+
+        result.innerHTML =
+            "<h3>congrats you gained " +
+            finalAmount +
+            "rs    " +
+            profPer +
+            "% :)</h3>";
+        backgroundC.style.backgroundImage = "url('happy.gif')";
     }
 }
