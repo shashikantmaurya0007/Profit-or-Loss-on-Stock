@@ -13,6 +13,18 @@ function perform() {
     let currentValue = Number(CurrentPrice.value);
     let quantityValue = Number(quantity.value);
 
+    if (!initialValue || !currentValue || !quantityValue) {
+        alert(
+            "inital price or Quantity or current price can't be empty ,zero or negative"
+        );
+        return;
+    }
+
+    if (initialValue < 1 || currentValue < 1 || quantityValue < 1) {
+        alert("inputs can't be negative");
+        return;
+    }
+
     let finalAmount = currentValue * quantityValue - quantityValue * initialValue;
     console.log(finalAmount);
     if (finalAmount === 0) {
