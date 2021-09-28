@@ -38,7 +38,7 @@ function perform() {
             "<h3>Sorry you lost " +
             -1 * finalAmount +
             "rs    " +
-            lossPer +
+            -1 * lossPer +
             "% :(</h3>";
         backgroundC.style.backgroundImage = "url('raindrops-raining.gif')";
     }
