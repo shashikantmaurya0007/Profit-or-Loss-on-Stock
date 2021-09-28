@@ -26,6 +26,7 @@ function perform() {
     }
 
     let finalAmount = currentValue * quantityValue - quantityValue * initialValue;
+
     console.log(finalAmount);
     if (finalAmount === 0) {
         result.innerHTML = "<h3>No pain no gain and no gain no pain</h3>";
@@ -38,7 +39,7 @@ function perform() {
             "<h3>Sorry you lost " +
             -1 * finalAmount +
             "rs    " +
-            -1 * lossPer +
+            -1 * lossPer.toFixed(2) +
             "% :(</h3>";
         backgroundC.style.backgroundImage = "url('raindrops-raining.gif')";
     }
@@ -49,7 +50,7 @@ function perform() {
             "<h3>congrats you gained " +
             finalAmount +
             "rs    " +
-            profPer +
+            profPer.toFixed(2) +
             "% :)</h3>";
         backgroundC.style.backgroundImage = "url('happy.gif')";
     }
